@@ -32,12 +32,12 @@ int DataVisualizationController::getUserResponse()
     int userResponse;
     while ( std::cin >> userResponse)
     {
-        // verify that user response is valid
+        // verify user response
         // if exit -> return
         if (userResponse == 5){
             break;
-        } else if (isUserResponseValid(userResponse)) {
-            // if valid process request
+        } else if (isUserAskingForInfo(userResponse)) {
+            // if asking for info,process request
             processUserResponse(userResponse);
         }  else {
             // if response not valid, promt the user to choose another option
@@ -104,7 +104,7 @@ void DataVisualizationController::displayRequestedInfo(std::list<string> request
     }
 }
 
-bool DataVisualizationController::isUserResponseValid(int userResponse)
+bool DataVisualizationController::isUserAskingForInfo(int userResponse)
 {
     // check if user response is valid
     if (userResponse > 0 && userResponse < 5) {

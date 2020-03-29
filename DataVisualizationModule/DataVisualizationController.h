@@ -19,7 +19,7 @@ private:
     void processUserResponse(int userResponse);
     void displayRequestedInfo(SystemDetailsType userResponse, std::map<std::string, std::string> requestedInfo);
     void displayRequestedInfo(std::list<std::string> requestedInfo);
-    bool isUserResponseValid(int userResponse);
+    bool isUserAskingForInfo(int userResponse);
 
 private:
     AbstractDataModel& m_dataModel;

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.12)
 
 # Create list of all source files from current module
 set(MODULES_WINDOWS_DATA_COLLECTOR_MODULE
