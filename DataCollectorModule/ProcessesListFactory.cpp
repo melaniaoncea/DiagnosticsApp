@@ -2,6 +2,7 @@
 #include "AbstractProcessesList.h"
 
 #include<config.h>
+#include<memory> // include this library for the Unix platform
 
 #ifdef  HAVE_WINDOWS_H
     #include "DataCollectorModule/Windows/WindowsProcessesList.h"

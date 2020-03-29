@@ -4,6 +4,8 @@
 #include "AbstractProcessesListFactory.h"
 #include "AbstractProcessesList.h"
 
+#include<memory> // for Unix/Ubuntu platform
+
 using namespace std;
 
 class ProcessesListFactory : public AbstractProcessesListFactory

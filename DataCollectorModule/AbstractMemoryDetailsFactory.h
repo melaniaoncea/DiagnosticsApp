@@ -3,6 +3,8 @@
 
 #include "AbstractMemoryDetails.h"
 
+#include<memory>
+
 using namespace std;
 
 class AbstractMemoryDetailsFactory

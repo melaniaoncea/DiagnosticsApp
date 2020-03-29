@@ -3,6 +3,8 @@
 
 #include "AbstractOsDetails.h"
 
+#include<memory>
+
 using namespace std;
 
 class AbstractOsDetailsFactory

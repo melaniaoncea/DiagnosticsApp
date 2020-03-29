@@ -4,6 +4,8 @@
 #include "AbstractMachineDetailsFactory.h"
 #include "AbstractMachineDetails.h"
 
+#include<memory>
+
 using namespace std;
 
 class MachineDetailsFactory : public AbstractMachineDetailsFactory

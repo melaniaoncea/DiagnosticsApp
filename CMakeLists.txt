@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 
 project(DiagnosticsApp VERSION 1.0.0 LANGUAGES CXX)
 
-include(ctest)
+#include(ctest)
 
 include(CheckIncludeFileCXX)
 

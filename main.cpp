@@ -22,6 +22,7 @@
 #include<map>
 #include<list>
 #include<string>
+#include<memory>
 
 using namespace std;
 

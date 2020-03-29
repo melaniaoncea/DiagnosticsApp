@@ -2,6 +2,7 @@
 #include "AbstractMachineDetails.h"
 
 #include<config.h>
+#include<memory>
 
 #ifdef  HAVE_WINDOWS_H
     #include "DataCollectorModule/Windows/WindowsMachineDetails.h"
