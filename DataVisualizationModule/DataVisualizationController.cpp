@@ -25,7 +25,7 @@ void DataVisualizationController::displayUiMenu()
 int DataVisualizationController::getUserResponse()
 {
     // get the response from the user
-    int* userResponse(0);
+    int* userResponse(nullptr);
 
     while(scanf("%d", userResponse))
     {
