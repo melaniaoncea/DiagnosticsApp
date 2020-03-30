@@ -1,10 +1,12 @@
 #ifndef UNIXPROCESSESLIST_H
 #define UNIXPROCESSESLIST_H
 
+#include "DataCollectorModule/AbstractProcessesList.h"
+
 #include<list>
 #include<string>
 
-#include "DataCollectorModule/AbstractProcessesList.h"
+using namespace std;
 
 class UnixProcessesList : public AbstractProcessesList
 {
@@ -12,11 +14,11 @@ public:
     UnixProcessesList();
 
     void setProcessesList() override;
-    std::list<std::string> getRunningProcessesList() const override;
+    list<string> getRunningProcessesList() const override;
 
 
 private:
-    std::list<std::string> m_runningProcessesList;
+    list<string> m_runningProcessesList;
 };
 
 #endif // UNIXPROCESSESDETAILS_H

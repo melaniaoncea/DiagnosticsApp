@@ -4,9 +4,9 @@
 #include<list>
 #include<string>
 
-std::map<std::string, std::string> DataModel::getSystemDetails(SystemDetailsType detailsType) const
+map<string, string> DataModel::getSystemDetails(SystemDetailsType detailsType) const
 {
-    std::map<std::string, std::string> result;
+    map<string, string> result;
     switch (detailsType) {
         case SystemDetailsType::OsDetails: result = getOsDetails();
             break;
@@ -17,12 +17,12 @@ std::map<std::string, std::string> DataModel::getSystemDetails(SystemDetailsType
     return result;
 }
 
-std::list<std::string> DataModel::getCurrentRunningProcesses() const
+list<string> DataModel::getCurrentRunningProcesses() const
 {
     return m_currentRunningProcesses;
 }
 
-void DataModel::setSystemDetails(SystemDetailsType detailsType, std::map<std::string, std::string> systemDetails)
+void DataModel::setSystemDetails(SystemDetailsType detailsType, map<string, string> systemDetails)
 {
     switch (detailsType) {
         case SystemDetailsType::OsDetails: setOsDetails(systemDetails);
@@ -33,40 +33,40 @@ void DataModel::setSystemDetails(SystemDetailsType detailsType, std::map<std::st
     }
 }
 
-void DataModel::setCurrentRunningProcesses(std::list<std::string> currentRunningProcesses)
+void DataModel::setCurrentRunningProcesses(list<string> currentRunningProcesses)
 {
     m_currentRunningProcesses.clear();
     m_currentRunningProcesses = currentRunningProcesses;
 }
 
-std::map<std::string, std::string> DataModel::getOsDetails() const
+map<string, string> DataModel::getOsDetails() const
 {
     return m_osDetails;
 }
 
-std::map<std::string, std::string> DataModel::getMachineDetails() const
+map<string, string> DataModel::getMachineDetails() const
 {
     return  m_machineDetails;
 }
 
-std::map<std::string, std::string> DataModel::getMemoryDetails() const
+map<string, string> DataModel::getMemoryDetails() const
 {
     return m_memoryDetails;
 }
 
-void DataModel::setOsDetails(std::map<std::string, std::string> osDetails)
+void DataModel::setOsDetails(map<string, string> osDetails)
 {
     m_osDetails.clear();
     m_osDetails = osDetails;
 }
 
-void DataModel::setMachineDetails(std::map<std::string, std::string> machineDetails)
+void DataModel::setMachineDetails(map<string, string> machineDetails)
 {
     m_memoryDetails.clear();
     m_machineDetails = machineDetails;
 }
 
-void DataModel::setMemoryDetails(std::map<std::string, std::string> memoryDetails)
+void DataModel::setMemoryDetails(map<string, string> memoryDetails)
 {
     m_memoryDetails.clear();
     m_memoryDetails = memoryDetails;

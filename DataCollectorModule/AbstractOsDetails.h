@@ -4,6 +4,8 @@
 #include<map>
 #include<string>
 
+using namespace std;
+
 class AbstractOsDetails
 {
 public:
@@ -11,7 +13,7 @@ public:
     virtual ~AbstractOsDetails() = default;
 
     virtual void setOsDetails() = 0;
-    virtual std::map<std::string, std::string> getOsDetails() const = 0;
+    virtual map<string, string> getOsDetails() const = 0;
 };
 
 #endif // ABSTRACTOSDETAILS_H

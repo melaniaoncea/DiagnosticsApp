@@ -1,36 +1,38 @@
 #ifndef DATAMODEL_H
 #define DATAMODEL_H
 
+#include "AbstractDataModel.h"
+
 #include<map>
 #include<list>
 #include<string>
 
-#include "AbstractDataModel.h"
+using namespace std;
 
 class DataModel : public AbstractDataModel
 {
 public:
     DataModel() = default;
 
-    std::map<std::string, std::string> getSystemDetails(SystemDetailsType detailsType) const override;
-    std::list<std::string> getCurrentRunningProcesses() const override;
-    void setSystemDetails(SystemDetailsType detailsType, std::map<std::string, std::string> systemDetails) override;
-    void setCurrentRunningProcesses(std::list<std::string> currentRunningProcesses) override;
+    map<string, string> getSystemDetails(SystemDetailsType detailsType) const override;
+    list<string> getCurrentRunningProcesses() const override;
+    void setSystemDetails(SystemDetailsType detailsType, map<string, string> systemDetails) override;
+    void setCurrentRunningProcesses(list<string> currentRunningProcesses) override;
 
 private:
-    std::map<std::string, std::string> getOsDetails() const;
-    std::map<std::string, std::string> getMachineDetails() const;
-    std::map<std::string, std::string> getMemoryDetails() const;
+    map<string, string> getOsDetails() const;
+    map<string, string> getMachineDetails() const;
+    map<string, string> getMemoryDetails() const;
 
-    void setOsDetails(std::map<std::string, std::string> osDetails);
-    void setMachineDetails(std::map<std::string, std::string> machineDetails);
-    void setMemoryDetails(std::map<std::string, std::string> memoryDetails);
+    void setOsDetails(map<string, string> osDetails);
+    void setMachineDetails(map<string, string> machineDetails);
+    void setMemoryDetails(map<string, string> memoryDetails);
 
 private:
-    std::map<std::string, std::string> m_osDetails;
-    std::map<std::string, std::string> m_machineDetails;
-    std::map<std::string, std::string> m_memoryDetails;
-    std::list<std::string> m_currentRunningProcesses;
+    map<string, string> m_osDetails;
+    map<string, string> m_machineDetails;
+    map<string, string> m_memoryDetails;
+    list<string> m_currentRunningProcesses;
 
 };
 

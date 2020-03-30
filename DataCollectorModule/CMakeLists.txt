@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 
 # Create list of all source files from current module
-set(MODULES_DATA_COLLECTOR_MODULE
+set(DATA_COLLECTOR_MODULE
     AbstractMachineDetails.h
     AbstractMachineDetails.cpp
     AbstractMachineDetailsFactory.h
@@ -28,15 +28,16 @@ set(MODULES_DATA_COLLECTOR_MODULE
     ProcessesListFactory.cpp  
 )
 
-add_library(Data_Collection_Library_static STATIC ${MODULES_DATA_COLLECTOR_MODULE})
+# Pack them into a static library
+add_library(Data_Collection_Library_static STATIC ${DATA_COLLECTOR_MODULE})
 
-# Add subdirectories
+# Add subdirectories and link platform specific libraries that current module is dependent on
 if(WIN32)
-add_subdirectory(Windows/)
+add_subdirectory(WindowsDataCollector/)
 target_link_libraries(Data_Collection_Library_static Windows_Data_Collection_Library_static)
 endif(WIN32)
 
 if(UNIX AND NOT APPLE)
-add_subdirectory(Unix/)
+add_subdirectory(UnixDataCollector/)
 target_link_libraries(Data_Collection_Library_static Unix_Data_Collection_Library_static)
 endif(UNIX AND NOT APPLE)

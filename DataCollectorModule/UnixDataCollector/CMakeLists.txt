@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 
 # Create list of all source files from current module
-set(MODULES_UNIX_DATA_COLLECTOR_MODULE
+set(UNIX_DATA_COLLECTOR_MODULE
     UnixMachineDetails.h
     UnixMachineDetails.cpp
     UnixMemoryDetails.h
@@ -12,6 +12,7 @@ set(MODULES_UNIX_DATA_COLLECTOR_MODULE
     UnixProcessesList.cpp
 )
 
+# Pack current module into a static library
 add_library(Unix_Data_Collection_Library_static STATIC
-    ${MODULES_UNIX_DATA_COLLECTOR_MODULE}
+    ${UNIX_DATA_COLLECTOR_MODULE}
     )

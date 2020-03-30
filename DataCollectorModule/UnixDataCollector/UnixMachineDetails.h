@@ -1,10 +1,12 @@
 #ifndef UNIXMACHINEDETAILS_H
 #define UNIXMACHINEDETAILS_H
 
+#include "DataCollectorModule/AbstractMachineDetails.h"
+
 #include<string>
 #include<map>
 
-#include "DataCollectorModule/AbstractMachineDetails.h"
+using namespace std;
 
 class UnixMachineDetails : public AbstractMachineDetails
 {
@@ -12,10 +14,10 @@ public:
     UnixMachineDetails();
 
     void setMachineDetails() override;
-    std::map<std::string, std::string>getMachineDetails() const override;
+    map<string, string>getMachineDetails() const override;
 
 private:
-    std::map<std::string, std::string> m_machineDetails;
+    map<string, string> m_machineDetails;
 
 
 };

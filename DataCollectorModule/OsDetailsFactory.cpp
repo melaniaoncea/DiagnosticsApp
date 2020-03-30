@@ -1,24 +1,22 @@
 #include "OsDetailsFactory.h"
 #include "AbstractOsDetails.h"
 
-#include<config.h>
-#include<memory>
-
-#ifdef  HAVE_WINDOWS_H
-    #include "DataCollectorModule/Windows/WindowsOsDetails.h"
+#ifdef _WIN32
+#include "DataCollectorModule/WindowsDataCollector/WindowsOsDetails.h"
 #endif
 
-#ifdef HAVE_SYS_MOUNT_H
-    #include "DataCollectorModule/Unix/UnixOsDetails.h"
+#ifdef __linux__ && !__ANDROID__
+#include "DataCollectorModule/UnixDataCollector/UnixOsDetails.h"
+#include<memory> // needed for recognizing shared_ptr in Unix
 #endif
 
 shared_ptr<AbstractOsDetails> OsDetailsFactory::make()
 {
-#ifdef  HAVE_WINDOWS_H
+#ifdef  _WIN32
     return make_shared<WindowsOsDetails>();
 #endif
 
-#ifdef HAVE_SYS_MOUNT_H
+#ifdef __linux__ && !__ANDROID__
     return make_shared<UnixOsDetails>();
 #endif
 }

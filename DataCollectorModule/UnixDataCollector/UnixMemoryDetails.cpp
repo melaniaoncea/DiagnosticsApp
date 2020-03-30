@@ -13,7 +13,7 @@ void UnixMemoryDetails::setMemoryDetails()
     m_memoryDetails.insert({"free", "6,235"});
 }
 
-std::map<std::string, std::string> UnixMemoryDetails::getMemoryDetails() const
+map<string, string> UnixMemoryDetails::getMemoryDetails() const
 {
     return m_memoryDetails;
 }

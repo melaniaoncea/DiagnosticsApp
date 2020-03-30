@@ -1,24 +1,22 @@
 #include "MachineDetailsFactory.h"
 #include "AbstractMachineDetails.h"
 
-#include<config.h>
-#include<memory>
-
-#ifdef  HAVE_WINDOWS_H
-    #include "DataCollectorModule/Windows/WindowsMachineDetails.h"
+#ifdef  _WIN32
+#include "DataCollectorModule/WindowsDataCollector/WindowsMachineDetails.h"
 #endif
 
-#ifdef HAVE_SYS_MOUNT_H
-    #include "DataCollectorModule/Unix/UnixMachineDetails.h"
+#ifdef __linux__ && !__ANDROID__
+#include "DataCollectorModule/UnixDataCollector/UnixMachineDetails.h"
+#include<memory>
 #endif
 
 shared_ptr<AbstractMachineDetails> MachineDetailsFactory::make()
 {
-#ifdef  HAVE_WINDOWS_H
+#ifdef  _WIN32
     return make_shared<WindowsMachineDetails>();
 #endif
 
-#ifdef HAVE_SYS_MOUNT_H
+#ifdef __linux__ && !__ANDROID__
     return make_shared<UnixMachineDetails>();
 #endif
 }

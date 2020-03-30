@@ -11,7 +11,7 @@ void UnixMachineDetails::setMachineDetails()
     m_machineDetails.insert({"manufacturer","AsusTek Computer Inc."});
 }
 
-std::map<std::string, std::string> UnixMachineDetails::getMachineDetails() const
+map<string, string> UnixMachineDetails::getMachineDetails() const
 {
     return m_machineDetails;
 }

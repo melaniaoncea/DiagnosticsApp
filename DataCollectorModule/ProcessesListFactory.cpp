@@ -1,24 +1,22 @@
 #include "ProcessesListFactory.h"
 #include "AbstractProcessesList.h"
 
-#include<config.h>
-#include<memory> // include this library for the Unix platform
-
-#ifdef  HAVE_WINDOWS_H
-    #include "DataCollectorModule/Windows/WindowsProcessesList.h"
+#ifdef _WIN32
+#include "DataCollectorModule/WindowsDataCollector/WindowsProcessesList.h"
 #endif
 
-#ifdef HAVE_SYS_MOUNT_H
-    #include "DataCollectorModule/Unix/UnixProcessesList.h"
+#ifdef __linux__ && !__ANDROID__
+#include "DataCollectorModule/UnixDataCollector/UnixProcessesList.h"
+#include<memory> // include this library for the Unix platform
 #endif
 
 shared_ptr<AbstractProcessesList> ProcessesListFactory::make()
 {
-#ifdef  HAVE_WINDOWS_H
+#ifdef _WIN32
     return make_shared<WindowsProcessesList>();
 #endif
 
-#ifdef HAVE_SYS_MOUNT_H
+#ifdef __linux__ && !__ANDROID__
     return make_shared<UnixProcessesList>();
 #endif
 }

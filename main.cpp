@@ -1,21 +1,24 @@
-#include "DataVisualizationModule/DataVisualizationController.h"//issue
+#include "DataVisualizationModule/AbstractDataVisualizationControllerFactory.h"
+#include "DataVisualizationModule/AbstractDataVisualizationController.h"
+#include "DataVisualizationModule/DataVisualizationControllerFactory.h"
+
 #include "DataVisualizationModule/DataModelModule/AbstractDataModel.h"
-#include "DataVisualizationModule/DataModelModule/DataModel.h" //issue
+#include "DataVisualizationModule/DataModelModule/DataModel.h"
 
 #include "DataCollectorModule/AbstractMachineDetailsFactory.h"
-#include "DataCollectorModule/AbstractMachineDetails.h" // issue
-#include "DataCollectorModule/MachineDetailsFactory.h" // issue
+#include "DataCollectorModule/AbstractMachineDetails.h"
+#include "DataCollectorModule/MachineDetailsFactory.h"
 
 #include "DataCollectorModule/AbstractMemoryDetailsFactory.h"
 #include "DataCollectorModule/AbstractMemoryDetails.h"
 #include "DataCollectorModule/MemoryDetailsFactory.h"
 
 #include "DataCollectorModule/AbstractOsDetailsFactory.h"
-#include "DataCollectorModule/AbstractOsDetails.h" // issue
+#include "DataCollectorModule/AbstractOsDetails.h"
 #include "DataCollectorModule/OsDetailsFactory.h"
 
 #include "DataCollectorModule/AbstractProcessesListFactory.h"
-#include "DataCollectorModule/AbstractProcessesList.h" // issue
+#include "DataCollectorModule/AbstractProcessesList.h"
 #include "DataCollectorModule/ProcessesListFactory.h"
 
 #include<iostream>
@@ -64,17 +67,11 @@ int main()
     dataModel->setCurrentRunningProcesses(processesListInfo);
 
     // create display controller
-    DataVisualizationController* dataVisualizationController = new DataVisualizationController(*dataModel);
+    AbstractDataVisualizationControllerFactory* dataVisualizationControllerFactory = new DataVisualizationControllerFactory();
+    shared_ptr<AbstractDataVisualizationController> dataVisualizationController = dataVisualizationControllerFactory->make();
 
     // display ui menu
+    dataVisualizationController->initialize(*dataModel);
     dataVisualizationController->displayUiMenu();
-
-    // delete dynamically created objects
-    delete machineDetailsFactory;
-    delete memoryDetailsFactory;
-    delete osDetailsFactory;
-    delete processesListFactory;
-    delete dataModel;
-    delete dataVisualizationController;
     return 0;
 }

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 
 # Create list of all source files from current module
-set(MODULES_WINDOWS_DATA_COLLECTOR_MODULE
+set(WINDOWS_DATA_COLLECTOR_MODULE
     WindowsMachineDetails.h
     WindowsMachineDetails.cpp
     WindowsMemoryDetails.h
@@ -12,9 +12,10 @@ set(MODULES_WINDOWS_DATA_COLLECTOR_MODULE
     WindowsProcessesList.cpp
 )
 
+# Pack module into a static library
 add_library(Windows_Data_Collection_Library_static STATIC
-    ${MODULES_WINDOWS_DATA_COLLECTOR_MODULE}
+    ${WINDOWS_DATA_COLLECTOR_MODULE}
     )
-target_link_libraries(Windows_Data_Collection_Library_static)
+
 
 

@@ -1,24 +1,22 @@
 #include "MemoryDetailsFactory.h"
 #include "AbstractMemoryDetails.h"
 
-#include<config.h>
-#include<memory>
-
-#ifdef  HAVE_WINDOWS_H
-    #include "DataCollectorModule/Windows/WindowsMemoryDetails.h"
+#ifdef _WIN32
+#include "DataCollectorModule/WindowsDataCollector/WindowsMemoryDetails.h"
 #endif
 
-#ifdef HAVE_SYS_MOUNT_H
-    #include "DataCollectorModule/Unix/UnixMemoryDetails.h"
+#ifdef __linux__ && !__ANDROID__
+#include "DataCollectorModule/UnixDataCollector/UnixMemoryDetails.h"
+#include<memory>
 #endif
 
 shared_ptr<AbstractMemoryDetails> MemoryDetailsFactory::make()
 {
-#ifdef  HAVE_WINDOWS_H
+#ifdef _WIN32
     return make_shared<WindowsMemoryDetails>();
 #endif
 
-#ifdef HAVE_SYS_MOUNT_H
+#ifdef __linux__ && !__ANDROID__
     return make_shared<UnixMemoryDetails>();
 #endif
 }

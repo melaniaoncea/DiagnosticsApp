@@ -1,11 +1,12 @@
 #ifndef UNIXMEMORYDETAILS_H
 #define UNIXMEMORYDETAILS_H
 
+#include "DataCollectorModule/AbstractMemoryDetails.h"
+
 #include<map>
 #include<string>
 
-#include "DataCollectorModule/AbstractMemoryDetails.h"
-
+using namespace std;
 
 class UnixMemoryDetails : public AbstractMemoryDetails
 {
@@ -13,11 +14,11 @@ public:
     UnixMemoryDetails();
 
     void setMemoryDetails() override;
-    std::map<std::string, std::string> getMemoryDetails() const override;
+    map<string, string> getMemoryDetails() const override;
 
 
 private:
-    std::map<std::string, std::string> m_memoryDetails;
+    map<string, string> m_memoryDetails;
 };
 
 #endif // UNIXMEMORYDETAILS_H

@@ -4,6 +4,8 @@
 #include<map>
 #include<string>
 
+using namespace std;
+
 class AbstractMemoryDetails
 {
 public:
@@ -11,7 +13,7 @@ public:
     virtual ~AbstractMemoryDetails() = default;
 
     virtual void setMemoryDetails() = 0;
-    virtual std::map<std::string, std::string> getMemoryDetails() const = 0;
+    virtual map<string, string> getMemoryDetails() const = 0;
 };
 
 #endif // ABSTRACTMEMORYDETAILS_H

@@ -12,7 +12,7 @@ void UnixOsDetails::setOsDetails()
     m_osDetails.insert({"osVersion", "16.04"});
 }
 
-std::map<std::string, std::string> UnixOsDetails::getOsDetails() const
+map<string, string> UnixOsDetails::getOsDetails() const
 {
     return m_osDetails;
 }
