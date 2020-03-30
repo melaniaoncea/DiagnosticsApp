@@ -15,7 +15,7 @@ public:
     AbstractDataVisualizationController() = default;
     virtual ~AbstractDataVisualizationController() = default;
 
-    virtual void initialize(AbstractDataModel& dataModel) = 0;
+    virtual void initialize(AbstractDataModel* dataModel) = 0;
     virtual void displayUiMenu() = 0;
 
 protected:

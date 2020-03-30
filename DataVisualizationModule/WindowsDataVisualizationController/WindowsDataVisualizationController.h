@@ -15,7 +15,7 @@ class WindowsDataVisualizationController : public AbstractDataVisualizationContr
 public:
     WindowsDataVisualizationController();
 
-    void initialize(AbstractDataModel& dataModel) override;
+    void initialize(AbstractDataModel* dataModel) override;
     void displayUiMenu() override;
 
 private:
@@ -27,7 +27,7 @@ private:
     char* castStringToCharArray(string& stringValue) override;
 
 private:
-    AbstractDataModel& m_dataModel;
+    AbstractDataModel* m_dataModel = nullptr;
 };
 
 #endif // WINDOWSDATAVISUALIZATIONCONTROLLER_H

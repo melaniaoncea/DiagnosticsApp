@@ -2,7 +2,7 @@
 #define UNIXDATAVISUALIZATIONCONTROLLER_H
 
 #include "DataVisualizationModule/AbstractDataVisualizationController.h"
-#include "DataModelModule/AbstractDataModel.h"
+#include "DataVisualizationModule/DataModelModule/AbstractDataModel.h"
 
 #include<map>
 #include<string>
@@ -13,9 +13,9 @@ using namespace std;
 class UnixDataVisualizationController : public AbstractDataVisualizationController
 {
 public:
-    UnixDataVisualizationController(AbstractDataModel& dataModel);
+    UnixDataVisualizationController() = default;
 
-    void initialize(AbstractDataModel &dataModel) override;
+    void initialize(AbstractDataModel *dataModel) override;
     void displayUiMenu() override;
 
 private:
@@ -27,7 +27,7 @@ private:
     char* castStringToCharArray(string & stringValue) override;
 
 private:
-    AbstractDataModel& m_dataModel;
+    AbstractDataModel* m_dataModel = nullptr;
 };
 
 #endif // UNIXDATAVISUALIZATIONCONTROLLER_H

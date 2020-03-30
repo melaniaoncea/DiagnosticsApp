@@ -3,7 +3,7 @@
 
 #include "AbstractDataVisualizationController.h"
 
-#include<memory.h>
+#include<memory>
 
 using namespace std;
 

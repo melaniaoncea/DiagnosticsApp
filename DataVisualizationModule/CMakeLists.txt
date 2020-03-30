@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
 
 # Create list of all source files from current module
 set(DATA_VISUALIZATION_MODULE
