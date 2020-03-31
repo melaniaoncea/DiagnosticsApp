@@ -22,7 +22,7 @@ void UnixDataVisualizationController::displayUiMenu()
               << "2 - Press 2 for machine details" << endl
               << "3 - Press 3 for memory details" << endl
               << "4 - Press 4 for the list of current running processes" << endl
-              << "5 - Press 5 for exiting the application"<< endl;
+              << "5 - Press 5 to stop" << endl;
     readUserResponse();
 }
 
