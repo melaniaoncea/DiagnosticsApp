@@ -71,7 +71,7 @@ int main()
     shared_ptr<AbstractDataVisualizationController> dataVisualizationController = dataVisualizationControllerFactory->make();
 
     // display ui menu
-    dataVisualizationController->initialize(*dataModel);
+    dataVisualizationController->initialize(dataModel);
     dataVisualizationController->displayUiMenu();
     return 0;
 }

@@ -13,7 +13,10 @@ class UnixMemoryDetails : public AbstractMemoryDetails
 public:
     UnixMemoryDetails();
 
+    // gathers memory details and save them in the map structure
     void setMemoryDetails() override;
+
+    // provides memory details
     map<string, string> getMemoryDetails() const override;
 
 

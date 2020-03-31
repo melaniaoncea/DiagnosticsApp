@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void WindowsDataVisualizationController::initialize(AbstractDataModel& dataModel)
+void WindowsDataVisualizationController::initialize(AbstractDataModel* dataModel)
 {
     m_dataModel = dataModel;
 }

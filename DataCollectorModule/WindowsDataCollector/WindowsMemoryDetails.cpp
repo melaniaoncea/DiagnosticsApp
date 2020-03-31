@@ -1,4 +1,5 @@
 #include "WindowsMemoryDetails.h"
+#include <windows.h>
 
 WindowsMemoryDetails::WindowsMemoryDetails()
 {
@@ -6,6 +7,7 @@ WindowsMemoryDetails::WindowsMemoryDetails()
 
 void WindowsMemoryDetails::setMemoryDetails()
 {
+    // use GlobalMemoryStatusEx from windows library
     m_memoryDetails.clear();
 
     m_memoryDetails.insert({"total", "16,235"});

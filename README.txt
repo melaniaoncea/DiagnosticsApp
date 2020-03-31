@@ -5,7 +5,7 @@ Display system information to the user based on the option he chooses from a con
 The project was made to build on two platforms : Windows and Linux/Unix (tested on Ubuntu distribution)
 
 Development tools used:
-IDE: QtCreator
+IDE: QtCreator 4.11.1
 
 a) WINDOWS: V. 10.0
 Compiler: Mcrosoft C++
