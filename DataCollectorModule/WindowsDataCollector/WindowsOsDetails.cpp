@@ -1,5 +1,5 @@
 #include "WindowsOsDetails.h"
-#include "Windows.h"
+#include "windows.h"
 
 WindowsOsDetails::WindowsOsDetails()
 {
@@ -10,22 +10,14 @@ void WindowsOsDetails::setOsDetails()
 {
     m_osDetails.clear();
 
+    // Os version can be retrieved using
+    // a function like VerifyVersionInfoA. Might
+    // not give the actual version for te Os
+    // see https://docs.microsoft.com/en-us/windows/
+    // win32/api/winbase/nf-winbase-verifyversioninfoa
+    // GetProductInfo might be an alternative
     m_osDetails.insert({"osName", "Windows"});
     m_osDetails.insert({"osVersion", "10.0"});
-//    OSVERSIONINFOEXA info;
-//    ZeroMemory(&info, sizeof(OSVERSIONINFOEX));
-//    info.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-//    DWORD dwTypeMask = 0x0000002 + 0x0000001 + 0x0000008;
-//    DWORDLONG dwlConditionMask;
-
-//    ULONGLONG conditionMask = 0;
-//    DWORD typeMask = 0x0000002;
-//    BYTE condition= 1;
-
-//    dwlConditionMask = VerSetConditionMask(conditionMask, typeMask, condition);
-
-//    VerifyVersionInfoA(&info, dwTypeMask, dwlConditionMask);
-    //    m_OSVersion = info.dwMajorVersion + info.dwMinorVersion;
 }
 
 std::map<std::string, std::string> WindowsOsDetails::getOsDetails() const
