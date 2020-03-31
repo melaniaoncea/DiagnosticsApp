@@ -28,6 +28,7 @@ on Windows).
 - improve install paths, do not leave them as they are by default so the project will have a unitary structure no matter on what platform is built
 - add unit tests using GoogleTest or other framwork. I had QtTest installed, but it does not work with standard C++.
 - fetch data from the system for all categories and remove hardcoded data
+- implement a better way to send around the data from maps and lists other than by value.
 
 # Some notes: normally I would not add the same header in a header file as well as in the source of that header, but I read that,
  in cross platform developmnet, one shouldn't rely on some other included file having the desired include. As this was my first project of this sort, I was not sure what that meant 
