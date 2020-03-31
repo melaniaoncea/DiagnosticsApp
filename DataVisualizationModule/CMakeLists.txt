@@ -3,9 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 # Create list of all source files from current module
 set(DATA_VISUALIZATION_MODULE
     AbstractDataVisualizationController.h
-    AbstractDataVisualizationController.cpp
     AbstractDataVisualizationControllerFactory.h
-    AbstractDataVisualizationControllerFactory.cpp
     DataVisualizationControllerFactory.h
     DataVisualizationControllerFactory.cpp
 )

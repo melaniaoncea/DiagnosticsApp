@@ -3,21 +3,13 @@ cmake_minimum_required(VERSION 3.10)
 # Create list of all source files from current module
 set(DATA_COLLECTOR_MODULE
     AbstractMachineDetails.h
-    AbstractMachineDetails.cpp
     AbstractMachineDetailsFactory.h
-    AbstractMachineDetailsFactory.cpp
     AbstractMemoryDetails.h
-    AbstractMemoryDetails.cpp
     AbstractMemoryDetailsFactory.h
-    AbstractMemoryDetailsFactory.cpp
     AbstractOsDetails.h
-    AbstractOsDetails.cpp
     AbstractOsDetailsFactory.h
-    AbstractOsDetailsFactory.cpp
     AbstractProcessesList.h
-    AbstractProcessesList.cpp
     AbstractProcessesListFactory.h
-    AbstractProcessesListFactory.cpp
     MachineDetailsFactory.h
     MachineDetailsFactory.cpp
     MemoryDetailsFactory.h

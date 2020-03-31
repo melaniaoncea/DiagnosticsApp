@@ -72,13 +72,10 @@ void UnixDataVisualizationController::displayRequestedInfo(SystemDetailsType sys
     // displays requested info for options 1, 2 and 3
     switch (systemDetailsType) {
     case SystemDetailsType::OsDetails: {
-        //TODO - SEE IF NOT NEEDED ALL CHARS
-        char* osVersion = castStringToCharArray(requestedInfo.at("osVersion"));
-        char* osName = castStringToCharArray(requestedInfo.at("osName"));
 
         std::cout << "The operation system details are: " << endl
-                  << "Name: " << osName << endl
-                  << "Version: " << osVersion << endl;
+                  << "Name: " << requestedInfo.at("osName") << endl
+                  << "Version: " << requestedInfo.at("osVersion") << endl;
         break;
     }
     case SystemDetailsType::MachineDetails: {
@@ -99,9 +96,9 @@ void UnixDataVisualizationController::displayRequestedInfo(SystemDetailsType sys
         char* freeMemory = castStringToCharArray(requestedInfo.at("free"));
 
         std::cout << "The memory details are: " << endl
-             << "Total memory: " << totalMemory << endl
-             << "Used memory: " << usedMemory << endl
-             << "Free memory: " << freeMemory << endl;
+             << "Total memory: " << totalMemory << "GB" << endl
+             << "Used memory: " << usedMemory << "GB" << endl
+             << "Free memory: " << freeMemory << "GB" << endl;
         break;
     }
     }

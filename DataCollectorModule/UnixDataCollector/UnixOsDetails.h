@@ -13,8 +13,14 @@ class UnixOsDetails : public AbstractOsDetails
 public:
     UnixOsDetails();
 
+    // gathers Os details and save them in the map structure
     void setOsDetails() override;
+
+    // provides osDetails data
     map<string, string> getOsDetails() const override;
+
+private:
+    std::string getOsDetails();
 
 
 private:
