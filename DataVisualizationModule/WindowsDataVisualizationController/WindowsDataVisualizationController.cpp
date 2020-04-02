@@ -57,10 +57,10 @@ void WindowsDataVisualizationController::processUserResponse(int userResponse)
     // process response based on response type and display requested info
     if (userResponse < 4) {
         auto systemDetailsType = static_cast<SystemDetailsType>(userResponse);
-        map<string, string> requestedInfo = m_dataModel.getSystemDetails(systemDetailsType);
+        map<string, string> requestedInfo = m_dataModel->getSystemDetails(systemDetailsType);
         displayRequestedInfo(systemDetailsType, requestedInfo);
     } else {
-        std::list<string> requestedInfo = m_dataModel.getCurrentRunningProcesses();
+        std::list<string> requestedInfo = m_dataModel->getCurrentRunningProcesses();
         displayRequestedInfo(requestedInfo);
     }
 
