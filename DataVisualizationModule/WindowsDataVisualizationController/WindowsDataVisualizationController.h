@@ -13,7 +13,7 @@ using namespace std;
 class WindowsDataVisualizationController : public AbstractDataVisualizationController
 {
 public:
-    WindowsDataVisualizationController();
+    WindowsDataVisualizationController() = default;
 
     void initialize(AbstractDataModel* dataModel) override;
     void displayUiMenu() override;

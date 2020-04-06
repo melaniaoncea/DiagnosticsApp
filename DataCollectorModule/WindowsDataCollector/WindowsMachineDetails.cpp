@@ -11,16 +11,9 @@ WindowsMachineDetails::WindowsMachineDetails()
 
 void WindowsMachineDetails::setMachineDetails()
 {
-    // get computer name in Windows
-    char buffer[256] = "";
-    uint32_t size = sizeof(buffer);
-    if (GetComputerName(buffer, &size))
-    {
-        m_machineDetails.insert({"name", to_string(buffer)});
-    }
-
-    // for these following details I saw tha working with WMI could be an option
+    // for these following details I saw that working with WMI could be an option
     // as well as writing your own code
+    m_machineDetails.insert({"name","Asus"});
     m_machineDetails.insert({"model","VivoBook_ASUSLaptop X430FN_S430FN"});
     m_machineDetails.insert({"manufacturer","AsusTek Computer Inc."});
 }
