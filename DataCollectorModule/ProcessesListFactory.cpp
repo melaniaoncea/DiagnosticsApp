@@ -5,7 +5,7 @@
 #include "DataCollectorModule/WindowsDataCollector/WindowsProcessesList.h"
 #endif
 
-#ifdef __linux__ && !__ANDROID__
+#ifdef __linux__
 #include "DataCollectorModule/UnixDataCollector/UnixProcessesList.h"
 #include<memory> // include this library for the Unix platform
 #endif
@@ -16,7 +16,7 @@ shared_ptr<AbstractProcessesList> ProcessesListFactory::make()
     return make_shared<WindowsProcessesList>();
 #endif
 
-#ifdef __linux__ && !__ANDROID__
+#ifdef __linux__
     return make_shared<UnixProcessesList>();
 #endif
 }

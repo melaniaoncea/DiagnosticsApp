@@ -4,7 +4,7 @@
 #include "WindowsDataVisualizationController/WindowsDataVisualizationController.h"
 #endif
 
-#ifdef __linux__ && !__ANDROID__
+#ifdef __linux__
 #include "UnixDataVisualizationController/UnixDataVisualizationController.h"
 #endif
 
@@ -17,7 +17,7 @@ shared_ptr<AbstractDataVisualizationController> DataVisualizationControllerFacto
 #ifdef _WIN32
     return make_shared<WindowsDataVisualizationController>();
 #endif
-#ifdef __linux__ && !__ANDROID__
+#ifdef __linux__
     return make_shared<UnixDataVisualizationController>();
 #endif
 

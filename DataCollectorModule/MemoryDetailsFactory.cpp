@@ -5,7 +5,7 @@
 #include "DataCollectorModule/WindowsDataCollector/WindowsMemoryDetails.h"
 #endif
 
-#ifdef __linux__ && !__ANDROID__
+#ifdef __linux__
 #include "DataCollectorModule/UnixDataCollector/UnixMemoryDetails.h"
 #include<memory>
 #endif
@@ -16,7 +16,7 @@ shared_ptr<AbstractMemoryDetails> MemoryDetailsFactory::make()
     return make_shared<WindowsMemoryDetails>();
 #endif
 
-#ifdef __linux__ && !__ANDROID__
+#ifdef __linux__
     return make_shared<UnixMemoryDetails>();
 #endif
 }
