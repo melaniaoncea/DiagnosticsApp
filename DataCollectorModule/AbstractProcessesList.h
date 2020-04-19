@@ -13,7 +13,7 @@ public:
     virtual ~AbstractProcessesList() = default;
 
     virtual void setProcessesList() = 0;
-    virtual list<string> getRunningProcessesList() const = 0;
+    virtual const list<string>& getRunningProcessesList() const = 0;
 };
 
 #endif // ABSTRACTPROCESSESLIST_H

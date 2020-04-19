@@ -27,21 +27,22 @@
 #include<string>
 #include<memory>
 
-using namespace std;
+using std::map;
+using std::string;
 
 int main()
 {
     // create the objects that collect the data
-    AbstractMachineDetailsFactory* machineDetailsFactory = new MachineDetailsFactory();
+    unique_ptr<AbstractMachineDetailsFactory> machineDetailsFactory = make_unique<MachineDetailsFactory>();
     shared_ptr<AbstractMachineDetails> machineDetails = machineDetailsFactory->make();
 
-    AbstractMemoryDetailsFactory* memoryDetailsFactory = new MemoryDetailsFactory();
+    unique_ptr<AbstractMemoryDetailsFactory> memoryDetailsFactory = make_unique<MemoryDetailsFactory>();
     shared_ptr<AbstractMemoryDetails> memoryDetails = memoryDetailsFactory->make();
 
-    AbstractOsDetailsFactory* osDetailsFactory = new OsDetailsFactory();
+    unique_ptr<AbstractOsDetailsFactory> osDetailsFactory = make_unique<OsDetailsFactory>();
     shared_ptr<AbstractOsDetails> osDetails = osDetailsFactory->make();
 
-    AbstractProcessesListFactory* processesListFactory = new ProcessesListFactory();
+    unique_ptr<AbstractProcessesListFactory> processesListFactory = make_unique<ProcessesListFactory>();
     shared_ptr<AbstractProcessesList> processesList = processesListFactory->make();
 
     // collect system information
@@ -51,23 +52,23 @@ int main()
     processesList->setProcessesList();
 
     // create data model
-    AbstractDataModel* dataModel = new DataModel();
+    shared_ptr<AbstractDataModel> dataModel = make_shared<DataModel>();
 
     // populate data model
-    std::map<std::string, std::string> machineDetailsInfo = machineDetails->getMachineDetails();
+    map<string, string> machineDetailsInfo = machineDetails->getMachineDetails();
     dataModel->setSystemDetails(SystemDetailsType::MachineDetails, machineDetailsInfo);
 
-    std::map<std::string, std::string> memoryDetailsInfo = memoryDetails->getMemoryDetails();
+    map<string, string> memoryDetailsInfo = memoryDetails->getMemoryDetails();
     dataModel->setSystemDetails(SystemDetailsType::MemoryDetails, memoryDetailsInfo);
 
-    std::map<std::string, std::string> osDetailsInfo = osDetails->getOsDetails();
+    map<string, string> osDetailsInfo = osDetails->getOsDetails();
     dataModel->setSystemDetails(SystemDetailsType::OsDetails, osDetailsInfo);
 
-    std::list<std::string> processesListInfo = processesList->getRunningProcessesList();
+    list<string> processesListInfo = processesList->getRunningProcessesList();
     dataModel->setCurrentRunningProcesses(processesListInfo);
 
     // create display controller
-    AbstractDataVisualizationControllerFactory* dataVisualizationControllerFactory = new DataVisualizationControllerFactory();
+    unique_ptr<AbstractDataVisualizationControllerFactory> dataVisualizationControllerFactory = make_unique<DataVisualizationControllerFactory>();
     shared_ptr<AbstractDataVisualizationController> dataVisualizationController = dataVisualizationControllerFactory->make();
 
     // display ui menu

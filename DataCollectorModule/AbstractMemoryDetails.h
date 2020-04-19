@@ -13,7 +13,7 @@ public:
     virtual ~AbstractMemoryDetails() = default;
 
     virtual void setMemoryDetails() = 0;
-    virtual map<string, string> getMemoryDetails() const = 0;
+    virtual const map<string, string>& getMemoryDetails() const = 0;
 };
 
 #endif // ABSTRACTMEMORYDETAILS_H

@@ -13,7 +13,7 @@ public:
     virtual ~AbstractOsDetails() = default;
 
     virtual void setOsDetails() = 0;
-    virtual map<string, string> getOsDetails() const = 0;
+    virtual const map<string, string>& getOsDetails() const = 0;
 };
 
 #endif // ABSTRACTOSDETAILS_H

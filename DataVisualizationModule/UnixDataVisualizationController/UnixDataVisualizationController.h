@@ -7,15 +7,18 @@
 #include<map>
 #include<string>
 #include<list>
+#include<memory>
 
-using namespace std;
+using std::string;
+using std::list;
+using std::map;
 
 class UnixDataVisualizationController : public AbstractDataVisualizationController
 {
 public:
     UnixDataVisualizationController() = default;
 
-    void initialize(AbstractDataModel *dataModel) override;
+    void initialize(shared_ptr<AbstractDataModel> dataModel) override;
     void displayUiMenu() override;
 
 private:
@@ -24,10 +27,9 @@ private:
     void displayRequestedInfo(SystemDetailsType userResponse, map<string, string> requestedInfo) override;
     void displayRequestedInfo(list<string> requestedInfo) override;
     bool isUserAskingForInfo(int userResponse) override;
-    char* castStringToCharArray(string & stringValue) override;
 
 private:
-    AbstractDataModel* m_dataModel = nullptr;
+    shared_ptr<AbstractDataModel> m_dataModel {nullptr};
 };
 
 #endif // UNIXDATAVISUALIZATIONCONTROLLER_H

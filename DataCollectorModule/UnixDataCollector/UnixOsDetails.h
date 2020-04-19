@@ -6,7 +6,8 @@
 #include<map>
 #include<string>
 
-using namespace std;
+using std::string;
+using std::map;
 
 class UnixOsDetails : public AbstractOsDetails
 {
@@ -17,10 +18,10 @@ public:
     void setOsDetails() override;
 
     // provides osDetails data
-    map<string, string> getOsDetails() const override;
+    const map<string, string>& getOsDetails() const override;
 
 private:
-    std::string getOsDetails();
+    string getOsDetails();
 
 
 private:

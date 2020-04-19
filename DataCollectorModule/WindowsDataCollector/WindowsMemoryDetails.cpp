@@ -15,7 +15,7 @@ void WindowsMemoryDetails::setMemoryDetails()
     m_memoryDetails.insert({"free", "6,235"});
 }
 
-std::map<std::string, std::string> WindowsMemoryDetails::getMemoryDetails() const
+const map<string, string> & WindowsMemoryDetails::getMemoryDetails() const
 {
     return m_memoryDetails;
 }

@@ -17,7 +17,7 @@ public:
     void setMemoryDetails() override;
 
     // provides memory details
-    map<string, string> getMemoryDetails() const override;
+    const map<string, string>& getMemoryDetails() const override;
 
 
 private:

@@ -6,16 +6,19 @@
 
 #include "DataCollectorModule/AbstractMachineDetails.h"
 
+using std::map;
+using std::string;
+
 class WindowsMachineDetails : public AbstractMachineDetails
 {
 public:
     WindowsMachineDetails();
 
     void setMachineDetails() override;
-    std::map<std::string, std::string>getMachineDetails() const override;
+    const map<string, string>& getMachineDetails() const override;
 
 private:
-    std::map<std::string, std::string> m_machineDetails;
+    map<string, string> m_machineDetails;
 };
 
 #endif // WINDOWSMACHINEDETAILS_H

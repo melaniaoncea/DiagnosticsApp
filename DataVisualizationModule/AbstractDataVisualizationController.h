@@ -6,6 +6,7 @@
 #include<map>
 #include<string>
 #include<list>
+#include<memory>
 
 using namespace std;
 
@@ -15,7 +16,7 @@ public:
     AbstractDataVisualizationController() = default;
     virtual ~AbstractDataVisualizationController() = default;
 
-    virtual void initialize(AbstractDataModel* dataModel) = 0;
+    virtual void initialize(shared_ptr<AbstractDataModel> dataModel) = 0;
     virtual void displayUiMenu() = 0;
 
 protected:
@@ -24,7 +25,6 @@ protected:
     virtual void displayRequestedInfo(SystemDetailsType userResponse, map<string, string> requestedInfo) = 0;
     virtual void displayRequestedInfo(list<string> requestedInfo) = 0;
     virtual bool isUserAskingForInfo(int userResponse) = 0;
-    virtual char* castStringToCharArray(string & stringValue) = 0;
 };
 
 #endif // ABSTRACTDATAVISUALIZATIONCONTROLLER_H

@@ -20,7 +20,7 @@ void WindowsOsDetails::setOsDetails()
     m_osDetails.insert({"osVersion", "10.0"});
 }
 
-std::map<std::string, std::string> WindowsOsDetails::getOsDetails() const
+const map<string, string> & WindowsOsDetails::getOsDetails() const
 {
     return m_osDetails;
 }

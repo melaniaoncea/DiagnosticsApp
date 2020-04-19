@@ -28,7 +28,7 @@ void UnixMemoryDetails::setMemoryDetails()
     m_memoryDetails.insert({"free", to_string(freeMemory)});
 }
 
-map<string, string> UnixMemoryDetails::getMemoryDetails() const
+const map<string, string>& UnixMemoryDetails::getMemoryDetails() const
 {
     return m_memoryDetails;
 }

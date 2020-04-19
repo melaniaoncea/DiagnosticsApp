@@ -5,7 +5,9 @@
 #include<list>
 #include<string>
 
-using namespace std;
+using std::string;
+using std::list;
+using std::map;
 
 enum SystemDetailsType {
     OsDetails = 1,
@@ -19,10 +21,10 @@ public:
     AbstractDataModel() = default;
     virtual ~AbstractDataModel() = default;
 
-    virtual map<string, string> getSystemDetails(SystemDetailsType detailsType) const = 0;
-    virtual list<string> getCurrentRunningProcesses() const = 0;
-    virtual void setSystemDetails(SystemDetailsType detailsType, map<string, string> systemDetails) = 0;
-    virtual void setCurrentRunningProcesses(list<string> currentRunningProcesses) = 0;
+    virtual const map<string, string>& getSystemDetails(SystemDetailsType detailsType) const = 0;
+    virtual const list<string>& getCurrentRunningProcesses() const = 0;
+    virtual void setSystemDetails(SystemDetailsType detailsType, const map<string, string>& systemDetails) = 0;
+    virtual void setCurrentRunningProcesses(const list<string>& currentRunningProcesses) = 0;
 
 };
 

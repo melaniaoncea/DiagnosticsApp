@@ -7,22 +7,24 @@
 #include<list>
 #include<string>
 
-using namespace std;
+using std::string;
+using std::list;
+using std::map;
 
 class DataModel : public AbstractDataModel
 {
 public:
     DataModel() = default;
 
-    map<string, string> getSystemDetails(SystemDetailsType detailsType) const override;
-    list<string> getCurrentRunningProcesses() const override;
-    void setSystemDetails(SystemDetailsType detailsType, map<string, string> systemDetails) override;
-    void setCurrentRunningProcesses(list<string> currentRunningProcesses) override;
+    const map<string, string>& getSystemDetails(SystemDetailsType detailsType) const override;
+    const list<std::string>& getCurrentRunningProcesses() const override;
+    void setSystemDetails(SystemDetailsType detailsType, const map<string, string>& systemDetails) override;
+    void setCurrentRunningProcesses(const list<string>& currentRunningProcesses) override;
 
 private:
-    map<string, string> getOsDetails() const;
-    map<string, string> getMachineDetails() const;
-    map<string, string> getMemoryDetails() const;
+    const map<std::string, std::string>& getOsDetails() const;
+    const map<string, string>& getMachineDetails() const;
+    const map<string, string>& getMemoryDetails() const;
 
     void setOsDetails(map<string, string> osDetails);
     void setMachineDetails(map<string, string> machineDetails);

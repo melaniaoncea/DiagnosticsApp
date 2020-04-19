@@ -13,7 +13,7 @@ public:
     virtual ~AbstractMachineDetails() = default;
 
     virtual void setMachineDetails() = 0;
-    virtual map<string, string>getMachineDetails() const = 0;
+    virtual const map<string, string>& getMachineDetails() const = 0;
 };
 
 #endif // ABSTRACTMACHINEDETAILS_H

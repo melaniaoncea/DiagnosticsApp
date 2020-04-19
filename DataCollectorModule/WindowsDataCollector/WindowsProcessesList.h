@@ -6,6 +6,8 @@
 
 #include "DataCollectorModule/AbstractProcessesList.h"
 
+using std::list;
+using std::string;
 
 class WindowsProcessesList : public AbstractProcessesList
 {
@@ -13,11 +15,11 @@ public:
     WindowsProcessesList();
 
     void setProcessesList() override;
-    std::list<std::string> getRunningProcessesList() const override;
+    const list<string>& getRunningProcessesList() const override;
 
 
 private:
-    std::list<std::string> m_runningProcessesList;
+    list<string> m_runningProcessesList;
 };
 
 #endif // WINDOWSPROCESSESDETAILS_H

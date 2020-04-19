@@ -14,7 +14,7 @@ public:
     UnixMachineDetails();
 
     void setMachineDetails() override;
-    map<string, string>getMachineDetails() const override;
+    const map<string, string>& getMachineDetails() const override;
 
 private:
     map<string, string> m_machineDetails;

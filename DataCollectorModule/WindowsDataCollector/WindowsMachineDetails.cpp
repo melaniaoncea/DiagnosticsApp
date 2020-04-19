@@ -18,7 +18,7 @@ void WindowsMachineDetails::setMachineDetails()
     m_machineDetails.insert({"manufacturer","AsusTek Computer Inc."});
 }
 
-std::map<std::string, std::string> WindowsMachineDetails::getMachineDetails() const
+const map<string, string>& WindowsMachineDetails::getMachineDetails() const
 {
     return m_machineDetails;
 }

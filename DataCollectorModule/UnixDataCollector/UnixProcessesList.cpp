@@ -13,7 +13,7 @@ void UnixProcessesList::setProcessesList()
     m_runningProcessesList.push_back("Process 3");
 }
 
-list<string> UnixProcessesList::getRunningProcessesList() const
+const list<string>& UnixProcessesList::getRunningProcessesList() const
 {
     return m_runningProcessesList;
 }

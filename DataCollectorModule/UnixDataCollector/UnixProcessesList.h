@@ -14,7 +14,7 @@ public:
     UnixProcessesList();
 
     void setProcessesList() override;
-    list<string> getRunningProcessesList() const override;
+    const list<string>& getRunningProcessesList() const override;
 
 
 private:

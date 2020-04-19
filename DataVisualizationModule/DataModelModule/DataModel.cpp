@@ -4,25 +4,23 @@
 #include<list>
 #include<string>
 
-map<string, string> DataModel::getSystemDetails(SystemDetailsType detailsType) const
+const map<string, string>& DataModel::getSystemDetails(SystemDetailsType detailsType) const
 {
-    map<string, string> result;
     switch (detailsType) {
-        case SystemDetailsType::OsDetails: result = getOsDetails();
+        case SystemDetailsType::OsDetails: return getOsDetails();
             break;
-        case SystemDetailsType::MachineDetails: result = getMachineDetails();
+        case SystemDetailsType::MachineDetails: return getMachineDetails();
             break;
-        case SystemDetailsType::MemoryDetails: result = getMemoryDetails();
+        case SystemDetailsType::MemoryDetails: return getMemoryDetails();
     }
-    return result;
 }
 
-list<string> DataModel::getCurrentRunningProcesses() const
+const list<string>& DataModel::getCurrentRunningProcesses() const
 {
     return m_currentRunningProcesses;
 }
 
-void DataModel::setSystemDetails(SystemDetailsType detailsType, map<string, string> systemDetails)
+void DataModel::setSystemDetails(SystemDetailsType detailsType, const map<string, string>& systemDetails)
 {
     switch (detailsType) {
         case SystemDetailsType::OsDetails: setOsDetails(systemDetails);
@@ -33,23 +31,23 @@ void DataModel::setSystemDetails(SystemDetailsType detailsType, map<string, stri
     }
 }
 
-void DataModel::setCurrentRunningProcesses(list<string> currentRunningProcesses)
+void DataModel::setCurrentRunningProcesses(const list<string> &currentRunningProcesses)
 {
     m_currentRunningProcesses.clear();
     m_currentRunningProcesses = currentRunningProcesses;
 }
 
-map<string, string> DataModel::getOsDetails() const
+const map<string, string>& DataModel::getOsDetails() const
 {
     return m_osDetails;
 }
 
-map<string, string> DataModel::getMachineDetails() const
+const map<string, string>& DataModel::getMachineDetails() const
 {
     return  m_machineDetails;
 }
 
-map<string, string> DataModel::getMemoryDetails() const
+const map<string, string>& DataModel::getMemoryDetails() const
 {
     return m_memoryDetails;
 }

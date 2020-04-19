@@ -7,9 +7,10 @@
 
 #include "DataVisualizationModule/DataModelModule/AbstractDataModel.h"
 
-using namespace std;
+using std::cout;
+using std::cin;
 
-void WindowsDataVisualizationController::initialize(AbstractDataModel* dataModel)
+void WindowsDataVisualizationController::initialize(shared_ptr<AbstractDataModel> dataModel)
 {
     m_dataModel = dataModel;
 }
@@ -31,7 +32,7 @@ int WindowsDataVisualizationController::readUserResponse()
 {
     // get the response from the user
     int userResponse(0);
-    int status = 1;
+    int status {1};
     while(cin >> userResponse)
     {
         // verify user response
@@ -57,10 +58,10 @@ void WindowsDataVisualizationController::processUserResponse(int userResponse)
     // process response based on response type and display requested info
     if (userResponse < 4) {
         auto systemDetailsType = static_cast<SystemDetailsType>(userResponse);
-        map<string, string> requestedInfo = m_dataModel->getSystemDetails(systemDetailsType);
+        const map<string, string>& requestedInfo = m_dataModel->getSystemDetails(systemDetailsType);
         displayRequestedInfo(systemDetailsType, requestedInfo);
     } else {
-        std::list<string> requestedInfo = m_dataModel->getCurrentRunningProcesses();
+        const list<string>& requestedInfo = m_dataModel->getCurrentRunningProcesses();
         displayRequestedInfo(requestedInfo);
     }
 
@@ -75,49 +76,36 @@ void WindowsDataVisualizationController::displayRequestedInfo(SystemDetailsType 
     // displays requested info for options 1, 2 and 3
     switch (systemDetailsType) {
         case SystemDetailsType::OsDetails: {
-//TODO - SEE IF NOT NEEDED ALL CHARS
-            char* osVersion = castStringToCharArray(requestedInfo.at("osVersion"));
-            char* osName = castStringToCharArray(requestedInfo.at("osName"));
-
             cout << "The operation system details are: " << endl
-                 << "Name: " << osName << endl
-                 << "Version: " << osVersion << endl;
+                 << "Name: " << requestedInfo.at("osVersion") << endl
+                 << "Version: " << requestedInfo.at("osName") << endl;
             break;
         }
         case SystemDetailsType::MachineDetails: {
-            char* machineName = castStringToCharArray(requestedInfo.at("name"));
-            char* machineModel = castStringToCharArray(requestedInfo.at("model"));
-            char* machineManufacturer = castStringToCharArray(requestedInfo.at("manufacturer"));
-
             cout << "The machine details are: " << endl
-                 << "Name: " << machineName << endl
-                 << "Model: " << machineModel << endl
-                 << "Manufacturer: " << machineManufacturer << endl;
+                 << "Name: " << requestedInfo.at("name") << endl
+                 << "Model: " << requestedInfo.at("model") << endl
+                 << "Manufacturer: " << requestedInfo.at("manufacturer") << endl;
             break;
         }
 
         case SystemDetailsType::MemoryDetails: {
-            char* totalMemory = castStringToCharArray(requestedInfo.at("total"));
-            char* usedMemory = castStringToCharArray(requestedInfo.at("used"));
-            char* freeMemory = castStringToCharArray(requestedInfo.at("free"));
-
             cout << "The memory details are: " << endl
-                   << "Total memory: " << totalMemory << endl
-                   << "Used memory: " << usedMemory << endl
-                   << "Free memory: " << freeMemory << endl;
+                   << "Total memory: " << requestedInfo.at("total") << endl
+                   << "Used memory: " << requestedInfo.at("used") << endl
+                   << "Free memory: " << requestedInfo.at("free") << endl;
             break;
         }
     }
 }
-void WindowsDataVisualizationController::displayRequestedInfo(std::list<string> requestedInfo)
+void WindowsDataVisualizationController::displayRequestedInfo(list<string> requestedInfo)
 {
     // displays the requested info for option 4
     cout << "The list of currently running processes is: \n";
 
-    int i = 0;
-    for (string listelement : requestedInfo) {
-        char* processName = castStringToCharArray(listelement);
-        cout << i <<"." << processName << endl;
+    int i {0};
+    for (const string &listelement : requestedInfo) {
+        cout << i <<"." << listelement << endl;
         i++;
     }
 }
@@ -130,11 +118,4 @@ bool WindowsDataVisualizationController::isUserAskingForInfo(int userResponse)
     } else {
         return false;
     }
-}
-
-char * WindowsDataVisualizationController::castStringToCharArray(string &stringValue)
-{
-    //TODO see if function still needed or you need to change the structure that saves the data
-    char* castedStringValue = const_cast<char*>(stringValue.c_str());
-    return castedStringValue;
 }

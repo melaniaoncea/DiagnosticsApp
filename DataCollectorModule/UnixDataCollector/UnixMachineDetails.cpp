@@ -13,7 +13,7 @@ void UnixMachineDetails::setMachineDetails()
     m_machineDetails.insert({"manufacturer","AsusTek Computer Inc."});
 }
 
-map<string, string> UnixMachineDetails::getMachineDetails() const
+const map<string, string>& UnixMachineDetails::getMachineDetails() const
 {
     return m_machineDetails;
 }

@@ -19,7 +19,7 @@ void WindowsProcessesList::setProcessesList()
     m_runningProcessesList.push_back("Process 3");
 }
 
-std::list<std::string> WindowsProcessesList::getRunningProcessesList() const
+const list<string> & WindowsProcessesList::getRunningProcessesList() const
 {
     return m_runningProcessesList;
 }

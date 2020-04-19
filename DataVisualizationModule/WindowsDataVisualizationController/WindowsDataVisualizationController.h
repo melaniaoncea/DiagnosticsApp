@@ -7,27 +7,29 @@
 #include<map>
 #include<string>
 #include<list>
+#include<memory>
 
-using namespace std;
+using std::string;
+using std::list;
+using std::map;
 
 class WindowsDataVisualizationController : public AbstractDataVisualizationController
 {
 public:
     WindowsDataVisualizationController() = default;
 
-    void initialize(AbstractDataModel* dataModel) override;
+    void initialize(shared_ptr<AbstractDataModel> dataModel) override;
     void displayUiMenu() override;
 
 private:
     int readUserResponse() override;
     void processUserResponse(int userResponse) override;
     void displayRequestedInfo(SystemDetailsType userResponse, map<string, string> requestedInfo) override;
-    void displayRequestedInfo(std::list<string> requestedInfo) override;
+    void displayRequestedInfo(list<string> requestedInfo) override;
     bool isUserAskingForInfo(int userResponse) override;
-    char* castStringToCharArray(string& stringValue) override;
 
 private:
-    AbstractDataModel* m_dataModel = nullptr;
+    shared_ptr<AbstractDataModel> m_dataModel {nullptr};
 };
 
 #endif // WINDOWSDATAVISUALIZATIONCONTROLLER_H
